@@ -1,44 +1,38 @@
-import Token from "../models/Token";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+dotenv.config();
+
+const tokenSchema = new mongoose.Schema({
+  name: { type: String, required: true, unique: true },
+  symbol: { type: String, required: true, unique: true },
+  deployedAddress: { type: String, required: true },
+  network: { type: Number, required: true },
+  image: { type: String }
+}, {
+  timestamps: true
+});
+
+const Token = mongoose.model('Token', tokenSchema);
 
 const tokens = [
   {
-    name: 'Starbucks Loyalty Point',
-    symbol: 'STB',
-    deployedAddress: '0xf5BE20C709cD2D9eA5ee6bd2743f4f581032F39b',
-    network: 4444,
-    image: 'https://res.cloudinary.com/doc8edcms/image/upload/v1688353334/starbuck_ii5ask.svg'
+    name: 'USDT',
+    symbol: 'USDT',
+    deployedAddress: '0x73b4a58138CCcBDa822dF9449FeDA5eaC6669ebD',
+    network: 84532,
+    image: 'https://w7.pngwing.com/pngs/520/303/png-transparent-tether-united-states-dollar-cryptocurrency-fiat-money-market-capitalization-bitcoin-logo-bitcoin-trade-thumbnail.png'
   },
   {
-    name: 'MCDonald Loyalty Point',
-    symbol: 'MCD',
-    deployedAddress: '0xd24E45978549eB00Ec5CDaC5CE805Bc945aA3b8b',
-    network: 4444,
-    image: 'https://res.cloudinary.com/doc8edcms/image/upload/v1688353334/MDP_oo1qot.svg'
+    name: 'Tether USD',
+    symbol: 'USDT',
+    deployedAddress: '0x2728DD8B45B788e26d12B13Db5A244e5403e7eda',
+    network: 11155111,
+    image: 'https://w7.pngwing.com/pngs/520/303/png-transparent-tether-united-states-dollar-cryptocurrency-fiat-money-market-capitalization-bitcoin-logo-bitcoin-trade-thumbnail.png'
   },
-  {
-    name: 'Walmart Loyalty Point',
-    symbol: 'WLP',
-    deployedAddress: '0xd4b7eD2b9F55146d993b471A6373237053af62cB',
-    network: 8888,
-    image: 'https://res.cloudinary.com/doc8edcms/image/upload/v1688353334/WMP_cn4gou.svg'
-  },
-  {
-    name: 'Singapore Airlines Loyalty Point',
-    symbol: 'SAP',
-    deployedAddress: '0xe7004347d7460A77D42B8A3e7390DccE7A63CB55',
-    network: 4444,
-    image: 'https://res.cloudinary.com/doc8edcms/image/upload/v1688353334/SAP_pc6a2i.svg'
-  },
-  {
-    name: 'Highlands Loyalty Point',
-    symbol: 'HLP',
-    deployedAddress: '0x7715c99Ed32cFCB2768844873475Fccd2ea41E51',
-    network: 8888,
-    image: 'https://res.cloudinary.com/doc8edcms/image/upload/v1689671430/hlp_n8cwfh.svg'
-  }
 ];
 
 async function main() {
+  await mongoose.connect(process.env.MONGODB_URL);
   for (const token of tokens) {
     await Token.updateOne(
       { name: token.name },

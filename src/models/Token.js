@@ -10,15 +10,15 @@ const tokenSchema = new mongoose.Schema({
     timestamps: true
 })
 
-tokenSchema.path('name').validate(async (value) => {
-    const enterpriseCount = await mongoose.models.Token.exists({ name: value });
-    return !enterpriseCount;
-}, 'Token name already exists');
+// tokenSchema.path('name').validate(async (value) => {
+//     const enterpriseCount = await mongoose.models.Token.exists({ name: value });
+//     return !enterpriseCount;
+// }, 'Token name already exists');
 
-tokenSchema.path('symbol').validate(async (value) => {
-    const symbolCount = await mongoose.models.Token.exists({ symbol: value });
-    return !symbolCount;
-}, 'Symbol already exists');
+// tokenSchema.path('symbol').validate(async (value) => {
+//     const symbolCount = await mongoose.models.Token.exists({ symbol: value });
+//     return !symbolCount;
+// }, 'Symbol already exists');
 
 const Token = mongoose.model('Token', tokenSchema)
 export default Token

@@ -3,5 +3,7 @@ import blockchainNetwork from "./blockchainNetwork.js";
 
 export default {
     8888: new BlockchainService(blockchainNetwork.AGD.RPC, blockchainNetwork.AGD.chainId, '0x00'),
-    4444: new BlockchainService(blockchainNetwork.MBC.RPC, blockchainNetwork.MBC.chainId, '0x00')
+    4444: new BlockchainService(blockchainNetwork.MBC.RPC, blockchainNetwork.MBC.chainId, '0x00'),
+    11155111: new BlockchainService(blockchainNetwork.SEPOLIA.RPC, blockchainNetwork.SEPOLIA.chainId, '0x00'),
+    84532: new BlockchainService(blockchainNetwork.BASE_SEPOLIA.RPC, blockchainNetwork.BASE_SEPOLIA.chainId, '0x00'),
 }
