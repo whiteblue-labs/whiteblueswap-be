@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
 const tokenSchema = new mongoose.Schema({
-    name: {type: String, required: true, unique: true},
-    symbol: {type: String, required: true, unique: true},
+    name: {type: String, required: true },
+    symbol: {type: String, required: true },
     deployedAddress: {type: String, required: true},
     network: {type: Number, required: true},
     image: {type: String}

@@ -20,6 +20,7 @@ app.use(cors({
     origin: [
         process.env.FRONTEND_HOST,
         'http://localhost:3000',
+        'http://194.233.85.52:5555/',
     ],
     credentials: true
 }))
