@@ -3,7 +3,7 @@ import { generateAccessToken, generateRefreshToken } from "../utils/token.js";
 import { getOne, create } from "../repositories/index.js";
 import jwt from "jsonwebtoken";
 import providers from '../config/providers.js';
-const providerDefault = providers[4444];
+const providerDefault = providers[8453];
 
 class AuthService {
     register = async(address) => {
@@ -67,8 +67,6 @@ class AuthService {
             id: decoded.id,
             address: decoded.address
         });
-
-        console.log(tokens)
 
         return {
             newAccessToken: tokens.accessToken,
