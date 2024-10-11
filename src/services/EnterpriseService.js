@@ -23,15 +23,18 @@ class EnterpriseService {
     }
 
     getAllEnterprise = async () => {
-        const enterprisesCache = await redisClient.get('enterprises');
-        if(enterprisesCache) {
-            return JSON.parse(enterprisesCache);
-        }
-        else{
-            const allEnterprise = await getAll(Token, {})
-            await redisClient.set('enterprises', JSON.stringify(allEnterprise));
-            return allEnterprise;
-        }
+        // const enterprisesCache = await redisClient.get('enterprises');
+        // if(enterprisesCache) {
+        //     return JSON.parse(enterprisesCache);
+        // }
+        // else{
+        //     const allEnterprise = await getAll(Token, {})
+        //     await redisClient.set('enterprises', JSON.stringify(allEnterprise));
+        //     return allEnterprise;
+        // }
+        const allEnterprise = await getAll(Token, {})
+        await redisClient.set('enterprises', JSON.stringify(allEnterprise));
+        return allEnterprise;
     }
 }
 

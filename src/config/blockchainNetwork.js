@@ -15,4 +15,12 @@ export default {
         RPC: 'https://sepolia.base.org',
         chainId: 84532
     },
+    BASE: {
+        RPC: 'https://mainnet.base.org',
+        chainId: 8453
+    },
+    ARBITRUM: {
+        RPC: 'https://arb1.arbitrum.io/rpc',
+        chainId: 42161
+    },
 }

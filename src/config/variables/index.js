@@ -3,6 +3,8 @@ const SwapTwoChainContract = {
     8888: '0x2da9AFC3825C11D9f4BcEaDd1194e9DF4b5Bb6DF',
     11155111: '0xE2260d6FAa7Ed4442AC73Cc6e5cEE41365c16ffE',
     84532: '0xDdDdB81B9082de0e2Fd08e925fb6D50C399e2a30',
+    8453: '',
+    42161: '',
 }
 
 export {SwapTwoChainContract}
