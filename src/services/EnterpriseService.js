@@ -33,7 +33,7 @@ class EnterpriseService {
         //     return allEnterprise;
         // }
         const allEnterprise = await getAll(Token, {})
-        await redisClient.set('enterprises', JSON.stringify(allEnterprise));
+        // await redisClient.set('enterprises', JSON.stringify(allEnterprise));
         return allEnterprise;
     }
 }
