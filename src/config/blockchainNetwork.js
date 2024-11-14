@@ -23,4 +23,8 @@ export default {
         RPC: 'https://arb1.arbitrum.io/rpc',
         chainId: 42161
     },
+    TAIKO: {
+        RPC: 'https://rpc.mainnet.taiko.xyz',
+        chainId: 167000
+    },
 }

@@ -57,13 +57,43 @@ const tokenLists = [
     "image": "https://img.cryptorank.io/coins/tether1645007690922.png",
     "network": 42161,
   },
+  {
+    "name": "WETH",
+    "symbol": "WETH",
+    "deployedAddress": "0xA51894664A773981C6C112C43ce576f315d5b1B6",
+    "image": "https://img.cryptorank.io/coins/weth1701090834118.png",
+    "network": 167000,
+  },
+  {
+    "name": "USDC",
+    "symbol": "USDC",
+    "deployedAddress": "0x07d83526730c7438048D55A4fc0b850e2aaB6f0b",
+    "image": "https://img.cryptorank.io/coins/usd%20coin1634317395959.png",
+    "network": 167000,
+  },
+  {
+    "name": "Tether",
+    "symbol": "USDT",
+    "deployedAddress": "0x9c2dc7377717603eB92b2655c5f2E7997a4945BD",
+    "image": "https://img.cryptorank.io/coins/tether1645007690922.png",
+    "network": 167000,
+  },
 ]
 
 async function main() {
   await mongoose.connect(process.env.MONGODB_URL);
-  await Token.deleteMany({});
   for (const token of tokenLists) {
-    await Token.create(token);
+    await Token.updateOne(
+      { name: token.name, network: token.network },
+      {
+        $set: {
+          symbol: token.symbol,
+          deployedAddress: token.deployedAddress,
+          image: token.image
+        }
+      },
+      { upsert: true }
+    )
   }
 }
 
